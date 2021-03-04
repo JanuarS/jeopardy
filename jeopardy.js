@@ -62,7 +62,7 @@ function getCategoryIds() {
  */
 
 async function getCategory(catId) { 
-    let res = await axios.get("http://jservice.io/api/category", {params: {id: catId}});
+    let res = await axios.get("https://jservice.io/api/category", {params: {id: catId}});
     // console.log(res.data.clues);      // remember to delete
     let cluesLength = res.data.clues.length;
     if (res.data.clues.length < HEIGHT) {
