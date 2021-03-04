@@ -3,8 +3,8 @@ const HEIGHT = 5;
 
 /*
     Functions list:
-        * getCategoryIds() - returns array of random catIds
-        * getCategory(catId)
+        getCategoryIds() - returns array of random catIds
+        getCategory(catId)
         async fillTable()
         handleClick(evt)
         showLoadingView() - show spinning wheel
@@ -36,8 +36,8 @@ let categories = [];
 const NUM_CATEGORIES = [];
 
 /** Get NUM_CATEGORIES random category from API.
- *
- * Returns array of category ids
+ * 
+ *  Returns array of category ids
  */
 
 function getCategoryIds() {
@@ -45,7 +45,6 @@ function getCategoryIds() {
         let randomCategory = Math.floor(Math.random() * 10000);
         NUM_CATEGORIES.push(randomCategory)
     }   
-    console.log(NUM_CATEGORIES);    // remember to delete
     return NUM_CATEGORIES;
 }
 
@@ -63,7 +62,6 @@ function getCategoryIds() {
 
 async function getCategory(catId) { 
     let res = await axios.get("https://jservice.io/api/category", {params: {id: catId}});
-    // console.log(res.data.clues);      // remember to delete
     let cluesLength = res.data.clues.length;
     if (res.data.clues.length < HEIGHT) {
         console.log(`${cluesLength} is too short.`);
@@ -83,7 +81,6 @@ async function getCategory(catId) {
         title: res.data.title,
         clues: clueArray
     };
-    console.log(catObject);
     return catObject;
 }
 
